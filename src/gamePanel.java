@@ -35,12 +35,11 @@ public class gamePanel extends JComponent implements Runnable  {
         double delta=0;
         long lasttime=System.nanoTime();
         long currenttime;
-        while(true){
+        while(gamethread!=null){
             currenttime=System.nanoTime();
             delta=delta+((currenttime-lasttime)/drawinterval);
             lasttime = currenttime;
             if(delta>=1){
-//                System.out.println("hello");
                 update();
                 repaint();
                 delta--;
