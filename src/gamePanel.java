@@ -7,6 +7,7 @@ public class gamePanel extends JComponent implements Runnable  {
     private  int circlex=50;
     private  int circley=50;
     private  final int circlespeed=5;
+    private  int fps=60;
     keyhandler key = new keyhandler();
     @Override
     protected void paintComponent(Graphics g) {
@@ -25,14 +26,26 @@ public class gamePanel extends JComponent implements Runnable  {
         this.setFocusable(true);
         gamethread= new Thread(this);
         gamethread.start();
+
     }
 
-    @Override
+
     public void run() {
-        while(gamethread!=null){
-            System.out.println("hello");
-            update();
-            repaint();
+        double drawinterval=1000000000/fps;
+        double delta=0;
+        long lasttime=System.nanoTime();
+        long currenttime;
+        while(true){
+            currenttime=System.nanoTime();
+            delta=delta+((currenttime-lasttime)/drawinterval);
+            lasttime = currenttime;
+            if(delta>=1){
+//                System.out.println("hello");
+                update();
+                repaint();
+                delta--;
+            }
+
         }
 
     }
