@@ -5,8 +5,8 @@ public class gamePanel extends JComponent implements Runnable  {
 
     public Thread gamethread;
     private  final int fps=60;
-    keyhandler key = new keyhandler();
-    pong pong;
+//    keyhandler key = new keyhandler();
+    pong pong=new pong();
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -17,9 +17,9 @@ public class gamePanel extends JComponent implements Runnable  {
     }
 
     public gamePanel(){
-        this.addKeyListener(key);
-        this.setFocusable(true);
-        pong = new pong(key);
+//        this.addKeyListener(key);
+//        this.setFocusable(true);
+       // pong = new pong(key);
         gamethread= new Thread(this);
         gamethread.start();
 
