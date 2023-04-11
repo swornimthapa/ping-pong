@@ -2,8 +2,8 @@ import java.awt.*;
 import java.util.Random;
 
 public class pong {
-    private  int circlex=Main.framewidth/2-50;
-    private  int circley=Main.frameheight/2-50;
+    private  int circlex=(Main.framewidth/2)-50;
+    private  int circley=(Main.frameheight/2)-50;
     private int randomxdirection;
     private int randomydirection;
 
@@ -38,14 +38,17 @@ public class pong {
 
     }
     public  void setxvelocity(int xspeed){
-        circlex=circlex+xspeed;
+       circlex=circlex+xspeed;
+        //System.out.println("x"+circlex);
     }
     public void setyvelocity(int yspeed){
         circley=circley+yspeed;
+        //System.out.println("y"+circley);
     }
     public void update(){
-        setyvelocity(yspeed);
         setxvelocity(xspeed);
+        setyvelocity(yspeed);
+
     }
     public void checkcollision(){
         if(circlex<=0){
@@ -54,11 +57,11 @@ public class pong {
         if(circley<=0){
             yspeed=-yspeed;
         }
-        if(circlex>=Main.framewidth-50){
+        if(circlex==900-50){
 
             xspeed=-xspeed;
         }
-        if(circley>=Main.frameheight-50){
+        if(circley==500-50){
             yspeed=-yspeed;
         }
 

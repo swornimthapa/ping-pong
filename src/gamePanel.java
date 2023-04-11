@@ -3,9 +3,8 @@ import java.awt.*;
 
 public class gamePanel extends JComponent implements Runnable  {
 
+
    public Thread gamethread;
-   public int width;
-   public int height;
     private  final int fps=60;
 //    keyhandler key = new keyhandler();
     pong pong=new pong();
@@ -23,7 +22,9 @@ public class gamePanel extends JComponent implements Runnable  {
 //        this.addKeyListener(key);
 //        this.setFocusable(true);
        // pong = new pong(key);
-
+      //  this.setSize(Main.framewidth,Main.frameheight);
+        this.setPreferredSize(new Dimension(900,500));
+        this.setDoubleBuffered(true);    //drawing will be done in off screen painting buffer---improves rendering
         gamethread= new Thread(this);
         gamethread.start();
 
