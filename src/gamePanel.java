@@ -3,10 +3,13 @@ import java.awt.*;
 
 public class gamePanel extends JComponent implements Runnable  {
 
-    public Thread gamethread;
+   public Thread gamethread;
+   public int width;
+   public int height;
     private  final int fps=60;
 //    keyhandler key = new keyhandler();
     pong pong=new pong();
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -20,8 +23,10 @@ public class gamePanel extends JComponent implements Runnable  {
 //        this.addKeyListener(key);
 //        this.setFocusable(true);
        // pong = new pong(key);
+
         gamethread= new Thread(this);
         gamethread.start();
+
 
     }
 
@@ -31,12 +36,14 @@ public class gamePanel extends JComponent implements Runnable  {
         double delta=0;
         long lasttime=System.nanoTime();
         long currenttime;
-        while(gamethread!=null){
+        while(true){
             currenttime=System.nanoTime();
             delta=delta+((currenttime-lasttime)/drawinterval);
             lasttime = currenttime;
             if(delta>=1){
                 update();
+                checkcollision();
+
                 repaint();
                 delta--;
             }
@@ -44,10 +51,12 @@ public class gamePanel extends JComponent implements Runnable  {
         }
 
     }
+    public void checkcollision(){
+        pong.checkcollision();
+    }
+
     public void update(){
-
-        pong.update();
-
+            pong.update();
     }
 
 

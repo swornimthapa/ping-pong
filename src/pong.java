@@ -2,10 +2,13 @@ import java.awt.*;
 import java.util.Random;
 
 public class pong {
-    private  int circlex=400;
-    private  int circley=400;
-    private  int  randomxdirection;
-    private  int randomydirection;
+    private  int circlex=Main.framewidth/2-50;
+    private  int circley=Main.frameheight/2-50;
+    private int randomxdirection;
+    private int randomydirection;
+
+    public int xspeed=2;
+    private int yspeed=2;
 
 //    keyhandler key;
 //    pong(keyhandler k){
@@ -16,49 +19,51 @@ public class pong {
     pong(){
         Random random=new Random();
          randomxdirection=random.nextInt(2);
+         if(randomxdirection==0){
+             xspeed=-xspeed;
+             setxvelocity(xspeed);
+         }
+         if(randomxdirection==1){
+             setxvelocity(xspeed);
+         }
+
          randomydirection=random.nextInt(2);
-//        movexdirection(randomxdirection,randomydirection);
+         if(randomydirection==0){
+             yspeed=-yspeed;
+             setyvelocity(yspeed);
+         }
+         if(randomydirection==1){
+             setyvelocity(yspeed);
+         }
 
     }
-
-
-//    public void movexdirection(int x,int y){
-//        circlex=circlex-x;
-//        circley=circley-y;
-//    }
+    public  void setxvelocity(int xspeed){
+        circlex=circlex+xspeed;
+    }
+    public void setyvelocity(int yspeed){
+        circley=circley+yspeed;
+    }
     public void update(){
-       final int circlespeed=5;
-//        if(key.uppressed == true){
-//            circley=circley-circlespeed;
-//        } else if (key.downpressed) {
-//            circley=circley+circlespeed;
-//        }else if(key.leftpressed){
-//            circlex=circlex-circlespeed;
-//        } else if (key.rightpressed) {
-//            circlex=circlex+circlespeed;
-//        }
-        //randomxdirection=0 -> left and randomydirection=0->left
-        if(randomydirection==0 && randomxdirection==0){
-            circlex=circlex-1;
-            circley=circley-1;
+        setyvelocity(yspeed);
+        setxvelocity(xspeed);
+    }
+    public void checkcollision(){
+        if(circlex<=0){
+            xspeed=-xspeed;
         }
-        if(randomxdirection==1 && randomydirection==1){
-            circlex=circlex+1;
-            circley=circley+1;
+        if(circley<=0){
+            yspeed=-yspeed;
         }
-        if(randomxdirection==0 && randomydirection==1){
-            circlex=circlex-1;
-            circley=circley+1;
-        }
-        if(randomxdirection==1 && randomydirection==0){
-            circlex=circlex+1;
-            circley=circley-1;
-        }
+        if(circlex>=Main.framewidth-50){
 
-
-
+            xspeed=-xspeed;
+        }
+        if(circley>=Main.frameheight-50){
+            yspeed=-yspeed;
+        }
 
     }
+
     public void draw(Graphics2D g2d){
         g2d.setColor(Color.RED);
         g2d.fillOval(circlex,circley,50,50);
