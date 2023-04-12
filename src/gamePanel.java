@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class gamePanel extends JComponent implements Runnable  {
 
@@ -8,6 +11,7 @@ public class gamePanel extends JComponent implements Runnable  {
     private  final int fps=60;
 //    keyhandler key = new keyhandler();
     pong pong=new pong();
+    paddle paddle1=new paddle();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -16,6 +20,7 @@ public class gamePanel extends JComponent implements Runnable  {
         RenderingHints rh= new RenderingHints(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.addRenderingHints(rh);
         pong.draw(g2d);
+        paddle1.draw(g2d);
     }
 
     public gamePanel(){
@@ -23,8 +28,12 @@ public class gamePanel extends JComponent implements Runnable  {
 //        this.setFocusable(true);
        // pong = new pong(key);
       //  this.setSize(Main.framewidth,Main.frameheight);
+
         this.setPreferredSize(new Dimension(900,500));
-        this.setDoubleBuffered(true);    //drawing will be done in off screen painting buffer---improves rendering
+        this.setDoubleBuffered(true);//drawing will be done in off screen painting buffer---improves rendering
+        this.setFocusable(true);
+        this.addKeyListener(new AL());
+
         gamethread= new Thread(this);
         gamethread.start();
 
@@ -43,6 +52,7 @@ public class gamePanel extends JComponent implements Runnable  {
             lasttime = currenttime;
             if(delta>=1){
                 update();
+
                 checkcollision();
 
                 repaint();
@@ -57,7 +67,20 @@ public class gamePanel extends JComponent implements Runnable  {
     }
 
     public void update(){
-            pong.update();
+        pong.update();
+       // paddle1.update();
+    }
+    public class AL extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            super.keyPressed(e);
+            paddle1.keyPressed(e);
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            super.keyReleased(e);
+        }
     }
 
 
