@@ -18,7 +18,7 @@ public class paddle implements  KeyListener{
         }
         if(id==2){
             g2d.setColor(Color.blue);
-            g2d.fillRect(900,ylocation2,20,120);
+            g2d.fillRect(900-20,ylocation2,20,120);
         }
 
     }
