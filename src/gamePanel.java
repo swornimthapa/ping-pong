@@ -11,7 +11,8 @@ public class gamePanel extends JComponent implements Runnable  {
     private  final int fps=60;
 //    keyhandler key = new keyhandler();
     pong pong=new pong();
-    paddle paddle1=new paddle();
+    paddle paddle1=new paddle(1);
+    paddle paddle2= new paddle(2);
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -21,23 +22,17 @@ public class gamePanel extends JComponent implements Runnable  {
         g2d.addRenderingHints(rh);
         pong.draw(g2d);
         paddle1.draw(g2d);
+        paddle2.draw(g2d);
     }
 
     public gamePanel(){
-//        this.addKeyListener(key);
-//        this.setFocusable(true);
-       // pong = new pong(key);
-      //  this.setSize(Main.framewidth,Main.frameheight);
-
         this.setPreferredSize(new Dimension(900,500));
         this.setDoubleBuffered(true);//drawing will be done in off screen painting buffer---improves rendering
         this.setFocusable(true);
-        this.addKeyListener(new AL());
+        this.addKeyListener(paddle1);
 
         gamethread= new Thread(this);
         gamethread.start();
-
-
     }
 
 
@@ -68,20 +63,6 @@ public class gamePanel extends JComponent implements Runnable  {
 
     public void update(){
         pong.update();
-       // paddle1.update();
+        paddle1.update();
     }
-    public class AL extends KeyAdapter {
-        @Override
-        public void keyPressed(KeyEvent e) {
-            super.keyPressed(e);
-            paddle1.keyPressed(e);
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-            super.keyReleased(e);
-        }
-    }
-
-
 }

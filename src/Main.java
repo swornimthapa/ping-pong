@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setName("ping pong");
-       // frame.setSize(framewidth,frameheight);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
