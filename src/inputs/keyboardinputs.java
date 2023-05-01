@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class keyboardinputs implements KeyListener {
 
-    public boolean up,down;
+    public boolean upw,downs,uparrow,downarrow;
     public void keyTyped(KeyEvent e) {
 
     }
@@ -13,10 +13,16 @@ public class keyboardinputs implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int keycode=e.getKeyCode();
         if(keycode==KeyEvent.VK_W){
-            up=true;
+            upw=true;
         }
         if(keycode==KeyEvent.VK_S){
-            down=true;
+            downs=true;
+        }
+        if(keycode==KeyEvent.VK_UP){
+            uparrow=true;
+        }
+        if(keycode==KeyEvent.VK_DOWN){
+            downarrow=true;
         }
     }
 
@@ -24,10 +30,16 @@ public class keyboardinputs implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int keycode=e.getKeyCode();
         if(keycode==KeyEvent.VK_W){
-            up=false;
+            upw=false;
         }
         if(keycode==KeyEvent.VK_S){
-            down=false;
+            downs=false;
+        }
+        if(keycode==KeyEvent.VK_UP){
+            uparrow=false;
+        }
+        if(keycode==KeyEvent.VK_DOWN){
+            downarrow=false;
         }
     }
 }

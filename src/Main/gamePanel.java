@@ -1,6 +1,7 @@
 package Main;
 
-import entities.Paddle;
+import entities.Paddle1;
+import entities.Paddle2;
 import entities.Pong;
 import inputs.keyboardinputs;
 import inputs.mouseinputs;
@@ -14,12 +15,11 @@ public class gamePanel extends JComponent implements Runnable  {
 
     public Thread gamethread;
     private  final int fps=60;
-    private mouseinputs mouseInputs;
-//    pong pong=new pong();
+//    private mouseinputs mouseInputs;
     Pong pong=new Pong();
     keyboardinputs keyinput = new keyboardinputs();
-    Paddle paddle1;
-    Paddle paddle2;
+    Paddle1 paddle1;
+    Paddle2 paddle2;
 
 
 
@@ -38,8 +38,8 @@ public class gamePanel extends JComponent implements Runnable  {
     }
 
     private void initplayer() {
-        paddle1= new Paddle(1,this,keyinput);
-        paddle2=new Paddle(2,this,keyinput);
+        paddle1= new Paddle1(0,Color.red,this,keyinput);
+        paddle2 = new Paddle2(900 - 20,Color.BLUE, this, keyinput);
     }
 
 
@@ -66,6 +66,7 @@ public class gamePanel extends JComponent implements Runnable  {
     public void checkcollision(){
         pong.checkcollision();
         paddle1.checkcollision();
+        paddle2.checkcollision();
     }
 
     public void update(){
