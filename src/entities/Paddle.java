@@ -35,6 +35,7 @@ public class Paddle {
     }
     public void setYvelocity(int yvelocity){
         ylocation=ylocation+yvelocity;
+        System.out.println(ylocation);
     }
     public void update(){
         yvelocity=10;
@@ -44,5 +45,15 @@ public class Paddle {
         if(key.down){
             setYvelocity(yvelocity);
         }
+
+    }
+    public void checkcollision(){
+        if(ylocation<=0){
+            ylocation=0;
+        }
+        if(ylocation+120>=500){
+            ylocation=500-120;
+        }
+        setYvelocity(0);
     }
 }

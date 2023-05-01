@@ -53,6 +53,7 @@ public class gamePanel extends JComponent implements Runnable  {
             delta=delta+((currenttime-lasttime)/drawinterval);
             lasttime = currenttime;
             if(delta>=1){
+
                 update();
                 checkcollision();
                 repaint();
@@ -64,6 +65,7 @@ public class gamePanel extends JComponent implements Runnable  {
     }
     public void checkcollision(){
         pong.checkcollision();
+        paddle1.checkcollision();
     }
 
     public void update(){
