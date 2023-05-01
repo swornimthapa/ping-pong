@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="568713d3-c841-4fce-9c86-7bae7c077f7c" name="Changes" comment="" />
+    <list default="true" id="568713d3-c841-4fce-9c86-7bae7c077f7c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Paddle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Pong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamestates/Gamestate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamestates/playing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/inputs/keyboardinputs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/inputs/mouseinputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/gamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/keyhandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pong.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +27,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -20,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,9 +56,31 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "D:/java4thsem/ping pong"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Main" />
+      <recent name="" />
+      <recent name="entities" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
+      <module name="ping pong" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -1,5 +1,6 @@
+package Main;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
     public static  int framewidth=900;
