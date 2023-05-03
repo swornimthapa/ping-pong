@@ -8,6 +8,7 @@ import inputs.mouseinputs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 
 public class gamePanel extends JComponent implements Runnable  {
@@ -83,6 +84,7 @@ public class gamePanel extends JComponent implements Runnable  {
                 pong.draw(g2d);
                 paddle1.draw(g2d);
                 paddle2.draw(g2d);
+                g2d.dispose();
 
     }
 
