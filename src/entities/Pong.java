@@ -8,8 +8,8 @@ import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
 public class Pong extends Rectangle{
-    public  int circlex=(900/2)-50;
-    public   int circley=(500/2)-50;
+//    public  int circlex=(900/2)-50;
+//    public   int circley=(500/2)-50;
     private int randomxdirection;
     private int randomydirection;
     public int xspeed=2;
@@ -17,6 +17,10 @@ public class Pong extends Rectangle{
     public Shape oval;
 
     public Pong(){
+        this.x=(900/2)-50;
+        this.y=(500/2)-50;
+        this.width=50;
+        this.height=50;
 
         Random random=new Random();
         randomxdirection=random.nextInt(2);
@@ -39,10 +43,10 @@ public class Pong extends Rectangle{
 
     }
     public  void setxvelocity(int xspeed){
-        circlex=circlex+xspeed;
+        this.x= this.x+xspeed;
     }
     public void setyvelocity(int yspeed){
-        circley=circley+yspeed;
+        this.y= this.y+yspeed;
 
     }
     public void update(){
@@ -50,26 +54,34 @@ public class Pong extends Rectangle{
         setyvelocity(yspeed);
 
     }
-    public void checkcollision(){
+    public void checkcollision(Paddle1 paddle1,Paddle2 paddle2){
 
-        if(circlex<=0){
+        if( this.x<=0){
             xspeed=-xspeed;
         }
-        if(circley<=0){
+        if( this.y<=0){
             yspeed=-yspeed;
         }
-        if(circlex==900-50){
+        if( this.x==900-50){
 
             xspeed=-xspeed;
         }
-        if(circley==500-50){
+        if( this.y==500-50){
             yspeed=-yspeed;
         }
         //collision with paddles
+        if(this.intersects(paddle1)){
+            System.out.println("paddle1 hit");
+            xspeed=-xspeed;
+        }
+        if(this.intersects(paddle2)){
+            System.out.println("paddle 2 hit");
+            xspeed=-xspeed;
+        }
 
     }
     public void draw(Graphics2D g2d){
-        oval=new Ellipse2D.Double(circlex,circley,50,50);
+        oval=new Ellipse2D.Double(this.x,this.y,this.width,this.height);
         g2d.setColor(Color.RED);
        // g2d.fillOval(circlex,circley,50,50);
         g2d.fill(oval);

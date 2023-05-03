@@ -65,7 +65,7 @@ public class gamePanel extends JComponent implements Runnable  {
 
     }
     public void checkcollision(){
-        pong.checkcollision();
+        pong.checkcollision(paddle1,paddle2);
         paddle1.checkcollision();
         paddle2.checkcollision();
     }
