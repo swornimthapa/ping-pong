@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="568713d3-c841-4fce-9c86-7bae7c077f7c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/gamestates/state.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamestates/statemethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/gamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Paddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Pong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Pong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Gamestate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/keyboardinputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/keyboardinputs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
