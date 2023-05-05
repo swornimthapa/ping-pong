@@ -37,7 +37,7 @@ public class gamePanel extends JComponent implements Runnable  {
         this.setFocusable(true);
         addKeyListener(keyinput);
         addMouseListener(mouseInputs);
-//        addMouseMotionListener(mouseInputs);
+       addMouseMotionListener(mouseInputs);
         initplayer();
         gamethread= new Thread(this);
         gamethread.start();
@@ -83,6 +83,8 @@ public class gamePanel extends JComponent implements Runnable  {
             case MENU:
 
                 break;
+            case OPTIONS:
+                break;
             default:
                 break;
         }
@@ -101,7 +103,13 @@ public class gamePanel extends JComponent implements Runnable  {
             case MENU:
                 menu.update();
                 break;
+            case OPTIONS:
+                break;
+            case QUIT:
+                System.exit(0);
+                break;
             default:
+
                 break;
         }
     }
@@ -126,6 +134,8 @@ public class gamePanel extends JComponent implements Runnable  {
                 break;
             case MENU:
                menu.draw(g2d);
+                break;
+            case OPTIONS:
                 break;
             default:
                 break;

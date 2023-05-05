@@ -41,13 +41,14 @@ public class MenuButtons {
     public void update(){
         index=0;
         if(mouseover){
-            System.out.println("mouse released");
+
             index=1;
         }
         if(mousepressd)
-        {   System.out.println("mouse pressed");
+        {
             index=2;
         }
+
     }
     public void setMousepressd(boolean mousepressd){
        // mousereleased=false;
@@ -56,6 +57,9 @@ public class MenuButtons {
     public void setReleased(boolean mousereleased){
        /// mousepressd=false;
         this.mousereleased=mousereleased;
+    }
+    public void setMousehover(boolean mouseover){
+        this.mouseover=mouseover;
     }
     public Rectangle getBounds(){
         return bounds;
@@ -67,7 +71,9 @@ public class MenuButtons {
         mousepressd=false;
         mousereleased=false;
     }
-
+    public void setGamestate(){
+        Gamestate.state = state;
+    }
 
 
 }
