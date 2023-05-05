@@ -12,6 +12,7 @@ import inputs.mouseinputs;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.io.IOException;
 
 
 public class gamePanel extends JComponent implements Runnable  {
@@ -28,7 +29,7 @@ public class gamePanel extends JComponent implements Runnable  {
     menu menu;
 
 
-    public gamePanel(){
+    public gamePanel() throws IOException {
         //mouseinputs mouseInputs = new mouseinputs();
 
         this.setPreferredSize(new Dimension(900,500));
@@ -42,11 +43,11 @@ public class gamePanel extends JComponent implements Runnable  {
         gamethread.start();
     }
 
-    private void initplayer() {
+    private void initplayer() throws IOException {
 //        paddle1= new Paddle1(0,Color.red,this,keyinput);
 //        paddle2 = new Paddle2(900 - 20,Color.BLUE, this, keyinput);
             playing = new playing(this,keyinput);
-            menu = new menu();
+            menu = new menu(this,keyinput);
     }
 
 
@@ -80,6 +81,7 @@ public class gamePanel extends JComponent implements Runnable  {
                 playing.checkcollision();
                 break;
             case MENU:
+
                 break;
             default:
                 break;
@@ -97,6 +99,7 @@ public class gamePanel extends JComponent implements Runnable  {
                 playing.update();
                 break;
             case MENU:
+                menu.update();
                 break;
             default:
                 break;
@@ -122,6 +125,7 @@ public class gamePanel extends JComponent implements Runnable  {
                 playing.draw(g2d);
                 break;
             case MENU:
+               menu.draw(g2d);
                 break;
             default:
                 break;
