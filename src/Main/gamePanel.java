@@ -20,7 +20,7 @@ public class gamePanel extends JComponent implements Runnable  {
 
     public Thread gamethread;
     private  final int fps=60;
-//    private mouseinputs mouseInputs;
+   private mouseinputs mouseInputs = new mouseinputs(this);
 //    Pong pong=new Pong();
     keyboardinputs keyinput = new keyboardinputs(this);
 //    Paddle1 paddle1;
@@ -36,7 +36,7 @@ public class gamePanel extends JComponent implements Runnable  {
         this.setDoubleBuffered(true);//drawing will be done in off screen painting buffer---improves rendering
         this.setFocusable(true);
         addKeyListener(keyinput);
-//        addMouseListener(mouseInputs);
+        addMouseListener(mouseInputs);
 //        addMouseMotionListener(mouseInputs);
         initplayer();
         gamethread= new Thread(this);
@@ -46,8 +46,8 @@ public class gamePanel extends JComponent implements Runnable  {
     private void initplayer() throws IOException {
 //        paddle1= new Paddle1(0,Color.red,this,keyinput);
 //        paddle2 = new Paddle2(900 - 20,Color.BLUE, this, keyinput);
-            playing = new playing(this,keyinput);
-            menu = new menu(this,keyinput);
+            playing = new playing(this,keyinput,mouseInputs);
+            menu = new menu(this,keyinput,mouseInputs);
     }
 
 

@@ -11,15 +11,21 @@ public class MenuButtons {
     int yposition;
     int rowindex;
     int index;
-    boolean mouseover,mousepressd;
+    boolean mouseover,mousepressd,mousereleased;
     Gamestate state;
     BufferedImage[] images;
+    private Rectangle bounds;
     public MenuButtons(int xposition, int yposition, int rowindex, Gamestate state) throws IOException {
             this.xposition=xposition;
             this.yposition=yposition;
             this.rowindex=rowindex;
             this.state=state;
             loadimages();
+            initbounds();
+    }
+
+    private void initbounds() {
+        bounds= new Rectangle(xposition,yposition,100,50);
     }
 
     private void loadimages() throws IOException {
@@ -35,12 +41,33 @@ public class MenuButtons {
     public void update(){
         index=0;
         if(mouseover){
+            System.out.println("mouse released");
             index=1;
         }
         if(mousepressd)
-        {
+        {   System.out.println("mouse pressed");
             index=2;
         }
     }
+    public void setMousepressd(boolean mousepressd){
+       // mousereleased=false;
+        this.mousepressd=mousepressd;
+    }
+    public void setReleased(boolean mousereleased){
+       /// mousepressd=false;
+        this.mousereleased=mousereleased;
+    }
+    public Rectangle getBounds(){
+        return bounds;
+    }
+    public boolean ismousedpressed(){
+        return mousepressd;
+    }
+    public void resetBools(){
+        mousepressd=false;
+        mousereleased=false;
+    }
+
+
 
 }

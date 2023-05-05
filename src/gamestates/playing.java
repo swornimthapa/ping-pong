@@ -5,9 +5,11 @@ import entities.Paddle1;
 import entities.Paddle2;
 import entities.Pong;
 import inputs.keyboardinputs;
+import inputs.mouseinputs;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public class playing extends state implements statemethods{
     Pong pong=new Pong();
@@ -15,8 +17,8 @@ public class playing extends state implements statemethods{
     Paddle1 paddle1;
     Paddle2 paddle2;
 
-    public playing(gamePanel gamepanel, keyboardinputs key) {
-        super(gamepanel, key);
+    public playing(gamePanel gamepanel, keyboardinputs key, inputs.mouseinputs mousekey) {
+        super(gamepanel, key,mousekey);
         initplayer();
     }
 
@@ -80,5 +82,25 @@ public class playing extends state implements statemethods{
         if(keycode==KeyEvent.VK_DOWN){
             keyinputs. downarrow=false;
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
     }
 }
