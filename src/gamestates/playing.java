@@ -1,6 +1,7 @@
 package gamestates;
 
 import Main.gamePanel;
+import UI.pauseOverlay;
 import entities.Paddle1;
 import entities.Paddle2;
 import entities.Pong;
@@ -16,10 +17,16 @@ public class playing extends state implements statemethods{
 
     Paddle1 paddle1;
     Paddle2 paddle2;
-
+    pauseOverlay pausemenu;
+    boolean pause=true;
     public playing(gamePanel gamepanel, keyboardinputs key, inputs.mouseinputs mousekey) {
         super(gamepanel, key,mousekey);
         initplayer();
+        intipausemenu();
+    }
+
+    private void intipausemenu() {
+        pausemenu = new pauseOverlay();
     }
 
 
@@ -33,6 +40,7 @@ public class playing extends state implements statemethods{
         pong.update();
         paddle1.update();
          paddle2.update();
+         pausemenu.update();
     }
 
     @Override
@@ -40,6 +48,8 @@ public class playing extends state implements statemethods{
         pong.draw(g2d);
         paddle1.draw(g2d);
         paddle2.draw(g2d);
+        pausemenu.draw(g2d);
+
         g2d.dispose();
     }
 
@@ -91,16 +101,22 @@ public class playing extends state implements statemethods{
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+            if(pause){
+                pausemenu.mouseReleased(e);
+            }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if(pause){
+            pausemenu.mousePressed(e);
+        }
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-
+        if(pause){
+            pausemenu.mouseMoved(e);
+        }
     }
 }

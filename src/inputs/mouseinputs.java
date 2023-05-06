@@ -23,7 +23,7 @@ public class mouseinputs implements MouseListener , MouseMotionListener {
     public void mousePressed(MouseEvent e) {
         switch (Gamestate.state){
             case PLAYING:
-               // gamepanel.getPlaying().KeyPressed(e);
+                gamepanel.getPlaying().mousePressed(e);
                 break;
             case MENU:
                 gamepanel.getMenu().mousePressed(e);
@@ -37,7 +37,7 @@ public class mouseinputs implements MouseListener , MouseMotionListener {
     public void mouseReleased(MouseEvent e) {
         switch (Gamestate.state){
             case PLAYING:
-                // gamepanel.getPlaying().KeyPressed(e);
+                 gamepanel.getPlaying().mouseReleased(e);
                 break;
             case MENU:
                 gamepanel.getMenu().mouseReleased(e);
@@ -59,14 +59,23 @@ public class mouseinputs implements MouseListener , MouseMotionListener {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        switch (Gamestate.state){
+            case PLAYING:
+                 gamepanel.getPlaying().mouseMoved(e);
+                break;
+            case MENU:
+                //gamepanel.getMenu().mouseMoved(e);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
         switch (Gamestate.state){
             case PLAYING:
-                // gamepanel.getPlaying().KeyPressed(e);
+                 gamepanel.getPlaying().mouseMoved(e);
                 break;
             case MENU:
                 gamepanel.getMenu().mouseMoved(e);

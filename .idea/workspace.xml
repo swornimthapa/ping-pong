@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="568713d3-c841-4fce-9c86-7bae7c077f7c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/menu_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/pause_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/urm_buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/volume_buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/pauseOverlay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/pausebuttons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/soundbottons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/gamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/MenuButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/MenuButtons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/loadsave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/loadsave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/state.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/state.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/playing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/inputs/mouseinputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseinputs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
