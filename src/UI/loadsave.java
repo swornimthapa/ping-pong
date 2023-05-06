@@ -10,6 +10,7 @@ public class loadsave {
     public static final String MENU_BACKGROUND ="menu_background.png";
     public static final String PAUSE_BACKGROUND ="pause_menu.png";
     public static final String sound_BUTTONS ="sound_button.png";
+    public static final String URM_BUTTONS ="urm_buttons.png";
     public static  BufferedImage getSprites(String filename) throws IOException {
         BufferedImage img=null;
         InputStream is =loadsave.class.getResourceAsStream("/"+filename);
