@@ -18,7 +18,7 @@ public class playing extends state implements statemethods{
     Paddle1 paddle1;
     Paddle2 paddle2;
     pauseOverlay pausemenu;
-    boolean pause=true;
+    boolean pause=false;
     public playing(gamePanel gamepanel, keyboardinputs key, inputs.mouseinputs mousekey) {
         super(gamepanel, key,mousekey);
         initplayer();
@@ -26,7 +26,7 @@ public class playing extends state implements statemethods{
     }
 
     private void intipausemenu() {
-        pausemenu = new pauseOverlay();
+        pausemenu = new pauseOverlay(this);
     }
 
 
@@ -37,18 +37,29 @@ public class playing extends state implements statemethods{
 
     @Override
     public void update() {
-        pong.update();
-        paddle1.update();
-         paddle2.update();
-         pausemenu.update();
+        if(!pause){
+            pong.update();
+            paddle1.update();
+            paddle2.update();
+        }else {
+            pausemenu.update();
+        }
+
+
     }
 
     @Override
     public void draw(Graphics2D g2d) {
-        pong.draw(g2d);
-        paddle1.draw(g2d);
-        paddle2.draw(g2d);
-        pausemenu.draw(g2d);
+
+            pong.draw(g2d);
+            paddle1.draw(g2d);
+            paddle2.draw(g2d);
+
+
+        if(pause){
+            pausemenu.draw(g2d);
+        }
+
 
         g2d.dispose();
     }
@@ -74,6 +85,9 @@ public class playing extends state implements statemethods{
         }
         if(keycode==KeyEvent.VK_DOWN){
             keyinputs.downarrow=true;
+        }
+        if(keycode==KeyEvent.VK_ESCAPE){
+            pause=!pause;
         }
     }
 
@@ -118,5 +132,8 @@ public class playing extends state implements statemethods{
         if(pause){
             pausemenu.mouseMoved(e);
         }
+    }
+    public void unpausegame(){
+        pause=false;
     }
 }

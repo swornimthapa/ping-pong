@@ -1,5 +1,8 @@
 package UI;
 
+import gamestates.Gamestate;
+import gamestates.playing;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -11,12 +14,16 @@ public class pauseOverlay {
     soundbottons soundbottons;
     soundbottons  sfxbuttons;
     urmbuttons unpause,replay,home;
-    public pauseOverlay(){
+    playing playing;
+    volumebutton volumebutton;
+
+    public pauseOverlay(playing playing){
         try {
             loadpausedbackground();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        this.playing= playing;
         initpausebuttons();
     }
 
@@ -26,6 +33,7 @@ public class pauseOverlay {
         unpause = new urmbuttons(390,335,40,40,0);
         replay = new urmbuttons(440,335,40,40,1);
         home = new urmbuttons(490,335,40,40,2);
+        volumebutton= new volumebutton(365,290,200,30);
     }
 
     private void loadpausedbackground() throws IOException {
@@ -50,6 +58,7 @@ public class pauseOverlay {
             unpause.urmbuttonsdraw(g2d);
             replay.urmbuttonsdraw(g2d);
             home.urmbuttonsdraw(g2d);
+            volumebutton.volumebuttonsdraw(g2d);
     }
 
 
@@ -66,6 +75,7 @@ public class pauseOverlay {
         } else if (isin(e,unpause)) {
             if(unpause.isMousepressed()){
                 unpause.setMousereleased(true);
+                playing.unpausegame();
             }
 
         } else if (isin(e,replay)) {
@@ -74,8 +84,11 @@ public class pauseOverlay {
             }
 
         } else if (isin(e,home)) {
-            if(home.isMousereleased()){
+            if(home.isMousepressed()){
                 home.setMousereleased(true);
+                Gamestate.state=Gamestate.MENU;
+                playing.unpausegame();
+
             }
 
         }
@@ -97,8 +110,12 @@ public class pauseOverlay {
             replay.setMousepressed(true);
         } else if (isin(e,unpause)) {
             unpause.setMousepressed(true);
+          //  playing.unpausegame();
+
         } else if (isin(e,home)) {
             home.setMousepressed(true);
+
+
         }
     }
 
@@ -119,6 +136,7 @@ public class pauseOverlay {
             replay.setMouseover(true);
         } else if (isin(e,home)) {
             home.setMouseover(true);
+
         }
 
     }
