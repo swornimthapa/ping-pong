@@ -33,7 +33,7 @@ public class pauseOverlay {
         unpause = new urmbuttons(390,335,40,40,0);
         replay = new urmbuttons(440,335,40,40,1);
         home = new urmbuttons(490,335,40,40,2);
-        volumebutton= new volumebutton(365,290,200,30);
+        volumebutton= new volumebutton(365,290,200,40);
     }
 
     private void loadpausedbackground() throws IOException {
@@ -50,6 +50,7 @@ public class pauseOverlay {
         unpause.update();
         replay.update();
         home.update();
+        volumebutton.update();
     }
     public void draw(Graphics2D g2d){
             g2d.drawImage(pausebackground,pausebx,pauseby,pausewidth,pauseheight,null);
@@ -90,13 +91,17 @@ public class pauseOverlay {
                 playing.unpausegame();
 
             }
-
+        } else if (isin(e,volumebutton)) {
+            if(volumebutton.isMousepressed()){
+                volumebutton.setMousereleased(true);
+            }
         }
         soundbottons.resetBools();
         sfxbuttons.resetBools();
         unpause.restBools();
         replay.restBools();
         home.restBools();
+        volumebutton.restBools();
     }
 
 
@@ -110,12 +115,10 @@ public class pauseOverlay {
             replay.setMousepressed(true);
         } else if (isin(e,unpause)) {
             unpause.setMousepressed(true);
-          //  playing.unpausegame();
-
         } else if (isin(e,home)) {
             home.setMousepressed(true);
-
-
+        } else if (isin(e,volumebutton)) {
+            volumebutton.setMousepressed(true);
         }
     }
 
@@ -126,6 +129,7 @@ public class pauseOverlay {
         unpause.setMouseover(false);
         replay.setMouseover(false);
         home.setMouseover(false);
+        volumebutton.setMouseover(false);
         if(isin(e,soundbottons)){
             soundbottons.setMouseOver(true);
         } else if (isin(e,sfxbuttons)) {
@@ -136,9 +140,15 @@ public class pauseOverlay {
             replay.setMouseover(true);
         } else if (isin(e,home)) {
             home.setMouseover(true);
-
+        }else if(isin(e,volumebutton)){
+            volumebutton.setMouseover(true);
         }
 
+    }
+    public void mouseDragged(MouseEvent e){
+        if(volumebutton.isMousepressed()){
+            volumebutton.slideslider(e.getX());
+        }
     }
     public boolean isin(MouseEvent e,pausebuttons p){
         return  (p.getBounds().contains(e.getX(),e.getY()));

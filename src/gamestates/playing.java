@@ -133,6 +133,15 @@ public class playing extends state implements statemethods{
             pausemenu.mouseMoved(e);
         }
     }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        if(pause){
+
+            pausemenu.mouseDragged(e);
+        }
+    }
+
     public void unpausegame(){
         pause=false;
     }

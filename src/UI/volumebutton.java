@@ -10,12 +10,16 @@ public class volumebutton extends  pausebuttons{
     BufferedImage[] vbuttons;
     BufferedImage slider;
    // int volumewidth=100;
+    private int minx,maxx;
     int buttonx;
     public volumebutton(int x, int y, int width, int height) {
-        super(x+width/2, y, 10, height);
+        super(x+width/2, y, 30, height);
         this.buttonx=x+(width/2);
         this.x=x;
         this.width=width;
+        this.minx=x+30/2;
+        this.maxx=x+width-30/2;
+        this.bounds.x -= 30/2;
         loadvolumebuttons();
     }
     private void loadvolumebuttons() {
@@ -40,10 +44,24 @@ public class volumebutton extends  pausebuttons{
         if(mousepressed){
             index=2;
         }
+
+    }
+    public void slideslider(int x){
+        if(x<minx){
+            buttonx=minx;
+
+        } else if (x>maxx) {
+            buttonx=maxx;
+
+        }else {
+            buttonx=x;
+            bounds.x=x;
+        }
+        bounds.x=buttonx-30/2;
     }
     public void volumebuttonsdraw(Graphics2D g2d){
         g2d.drawImage(slider,x,y,width,height,null);
-        g2d.drawImage(vbuttons[index],buttonx,y,30,height,null);
+        g2d.drawImage(vbuttons[index],buttonx-30/2,y,30,height,null);
 
 
     }
