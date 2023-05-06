@@ -1,6 +1,7 @@
 package gamestates;
 
 import Main.gamePanel;
+import UI.AudioOptions;
 import UI.pauseOverlay;
 import entities.Paddle1;
 import entities.Paddle2;
@@ -19,6 +20,7 @@ public class playing extends state implements statemethods{
     Paddle2 paddle2;
     pauseOverlay pausemenu;
     boolean pause=false;
+    private AudioOptions audioOptions;
     public playing(gamePanel gamepanel, keyboardinputs key, inputs.mouseinputs mousekey) {
         super(gamepanel, key,mousekey);
         initplayer();
@@ -26,6 +28,7 @@ public class playing extends state implements statemethods{
     }
 
     private void intipausemenu() {
+        this.audioOptions= new AudioOptions();
         pausemenu = new pauseOverlay(this);
     }
 
@@ -145,4 +148,10 @@ public class playing extends state implements statemethods{
     public void unpausegame(){
         pause=false;
     }
+    public AudioOptions getAudioOptions(){
+        return audioOptions;
+    }
+
+
+
 }

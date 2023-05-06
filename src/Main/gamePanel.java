@@ -1,9 +1,11 @@
 package Main;
 
+import UI.AudioOptions;
 import entities.Paddle1;
 import entities.Paddle2;
 import entities.Pong;
 import gamestates.Gamestate;
+import gamestates.gameOptions;
 import inputs.keyboardinputs;
 import gamestates.playing;
 import gamestates.menu;
@@ -27,7 +29,7 @@ public class gamePanel extends JComponent implements Runnable  {
 //    Paddle2 paddle2;
     playing playing;
     menu menu;
-
+    gameOptions gameoptions;
 
     public gamePanel() throws IOException {
         //mouseinputs mouseInputs = new mouseinputs();
@@ -44,10 +46,12 @@ public class gamePanel extends JComponent implements Runnable  {
     }
 
     private void initplayer() throws IOException {
+
 //        paddle1= new Paddle1(0,Color.red,this,keyinput);
 //        paddle2 = new Paddle2(900 - 20,Color.BLUE, this, keyinput);
             playing = new playing(this,keyinput,mouseInputs);
             menu = new menu(this,keyinput,mouseInputs);
+            gameoptions = new gameOptions(this,keyinput,mouseInputs);
     }
 
 
@@ -104,6 +108,7 @@ public class gamePanel extends JComponent implements Runnable  {
                 menu.update();
                 break;
             case OPTIONS:
+                gameoptions.update();
                 break;
             case QUIT:
                 System.exit(0);
@@ -136,6 +141,7 @@ public class gamePanel extends JComponent implements Runnable  {
                menu.draw(g2d);
                 break;
             case OPTIONS:
+                gameoptions.draw(g2d);
                 break;
             default:
                 break;
@@ -147,5 +153,9 @@ public class gamePanel extends JComponent implements Runnable  {
     public  menu getMenu(){
         return menu;
     }
+    public gameOptions getgameoptions(){
+        return gameoptions;
+    }
+
 
 }
