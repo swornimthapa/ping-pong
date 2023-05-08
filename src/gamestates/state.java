@@ -19,4 +19,5 @@ public class state {
         public boolean ispressingbutton(MouseEvent e, MenuButtons buttons){
             return buttons.getBounds().contains(e.getX(),e.getY());
         }
+
 }

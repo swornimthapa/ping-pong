@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="568713d3-c841-4fce-9c86-7bae7c077f7c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/options_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/AudioOptions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamestates/gameOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audio/backgroundmusic.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audio/die.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audio/gameover.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audio/menu.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audio/option.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Audio/AudioPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/gamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/gamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/loadsave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/loadsave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/pauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/pauseOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/mouseinputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/mouseinputs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,17 +48,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/java4thsem/ping pong&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/java4thsem/ping pong"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java4thsem\ping pong\res\audio" />
       <recent name="D:\java4thsem\ping pong\res" />
+      <recent name="D:\java4thsem\ping pong\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Main" />
@@ -77,6 +78,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
