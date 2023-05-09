@@ -6,6 +6,7 @@ import UI.pauseOverlay;
 import entities.Paddle1;
 import entities.Paddle2;
 import entities.Pong;
+import entities.Score;
 import inputs.keyboardinputs;
 import inputs.mouseinputs;
 
@@ -20,6 +21,7 @@ public class playing extends state implements statemethods{
     Paddle2 paddle2;
     pauseOverlay pausemenu;
     boolean pause=false;
+    Score score = new Score();
     private AudioOptions audioOptions;
     public playing(gamePanel gamepanel, keyboardinputs key, inputs.mouseinputs mousekey) {
         super(gamepanel, key,mousekey);
@@ -54,6 +56,7 @@ public class playing extends state implements statemethods{
     @Override
     public void draw(Graphics2D g2d) {
 
+            score.draw(g2d);
             pong.draw(g2d);
             paddle1.draw(g2d);
             paddle2.draw(g2d);

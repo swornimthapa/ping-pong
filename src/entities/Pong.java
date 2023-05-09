@@ -56,15 +56,19 @@ public class Pong extends Rectangle{
     }
     public void checkcollision(Paddle1 paddle1,Paddle2 paddle2){
 
-        if( this.x<=0){
-            xspeed=-xspeed;
-        }
+//        if( this.x<=0){
+//            xspeed=-xspeed;
+//        }
         if( this.y<=0){
             yspeed=-yspeed;
         }
         if( this.x==900-50){
-
-            xspeed=-xspeed;
+            Score.player1+=1;
+            reset();
+        }
+        if(this.x<0){
+            Score.player2+=1;
+            reset();
         }
         if( this.y==500-50){
             yspeed=-yspeed;
@@ -87,4 +91,11 @@ public class Pong extends Rectangle{
         g2d.fill(oval);
 
     }
+
+    public void reset(){
+        this.x=(900/2)-50;
+        this.y=(500/2)-50;
+        xspeed*=-1;
+    }
+
 }
