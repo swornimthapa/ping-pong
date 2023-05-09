@@ -73,6 +73,10 @@ public class MenuButtons {
     }
     public void setGamestate(){
         Gamestate.state = state;
+
+    }
+    public Gamestate getGamestate(){
+        return state;
     }
 
 

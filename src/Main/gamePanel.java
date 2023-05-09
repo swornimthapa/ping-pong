@@ -1,5 +1,6 @@
 package Main;
 
+import Audio.AudioPlayer;
 import UI.AudioOptions;
 import entities.Paddle1;
 import entities.Paddle2;
@@ -30,7 +31,7 @@ public class gamePanel extends JComponent implements Runnable  {
     playing playing;
     menu menu;
     gameOptions gameoptions;
-
+    AudioPlayer audioPlayer;
     public gamePanel() throws IOException {
         //mouseinputs mouseInputs = new mouseinputs();
 
@@ -52,6 +53,7 @@ public class gamePanel extends JComponent implements Runnable  {
             playing = new playing(this,keyinput,mouseInputs);
             menu = new menu(this,keyinput,mouseInputs);
             gameoptions = new gameOptions(this,keyinput,mouseInputs);
+            audioPlayer= new AudioPlayer();
     }
 
 
@@ -156,6 +158,8 @@ public class gamePanel extends JComponent implements Runnable  {
     public gameOptions getgameoptions(){
         return gameoptions;
     }
-
+    public AudioPlayer getAudioPlayer(){
+        return audioPlayer;
+    }
 
 }

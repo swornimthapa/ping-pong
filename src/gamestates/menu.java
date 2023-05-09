@@ -1,5 +1,6 @@
 package gamestates;
 
+import Audio.AudioPlayer;
 import Main.gamePanel;
 import UI.MenuButtons;
 import UI.loadsave;
@@ -84,6 +85,7 @@ public class menu extends state implements statemethods{
                 if(menubuttos[i].ismousedpressed()){
                     menubuttos[i].setReleased(true);
                     menubuttos[i].setGamestate();
+                    gamepanel.getMenu().setGamestate(menubuttos[i].getGamestate());
                 }
             }
         }

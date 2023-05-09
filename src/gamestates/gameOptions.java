@@ -59,7 +59,8 @@ public class gameOptions extends state implements statemethods{
     public void mouseReleased(MouseEvent e) {
         if(isin(e,menu)){
             if(menu.isMousepressed()){
-                Gamestate.state=Gamestate.MENU;
+                //Gamestate.state=Gamestate.MENU;
+                this.setGamestate(Gamestate.MENU);
             }
         }else{
             audioOptions.mouseReleased(e);
