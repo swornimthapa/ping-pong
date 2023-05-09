@@ -158,6 +158,8 @@ public class gamePanel extends JComponent implements Runnable  {
     public gameOptions getgameoptions(){
         return gameoptions;
     }
-
+    public AudioPlayer getAudioPlayer(){
+        return audioPlayer;
+    }
 
 }

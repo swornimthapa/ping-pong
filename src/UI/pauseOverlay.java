@@ -101,7 +101,8 @@ public class pauseOverlay {
         } else if (isin(e,home)) {
                 if (home.isMousepressed()) {
                     home.setMousereleased(true);
-                    Gamestate.state = Gamestate.MENU;
+                    //Gamestate.state = Gamestate.MENU;
+                    playing.setGamestate(Gamestate.MENU);
                     playing.unpausegame();
 
                 }

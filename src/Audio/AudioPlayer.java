@@ -7,6 +7,7 @@ import java.net.URL;
 public class AudioPlayer {
     public static int menu=0;
     public static int option=1;
+    public static int backgroundmusic=2;
     public Clip[] music;
     public Clip m;
     public int currentmusicid;
@@ -19,7 +20,7 @@ public class AudioPlayer {
 
     }
     public void loadmusic(){
-        String[] names= {"menu","option"};
+        String[] names= {"menu","option","backgroundmusic"};
         music = new Clip[names.length];
         for(int i=0;i<music.length;i++){
             music[i]=getClip(names[i]);
