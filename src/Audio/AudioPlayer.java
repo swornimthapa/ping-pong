@@ -8,11 +8,11 @@ public class AudioPlayer {
     public static int menu=0;
     public static int option=1;
     public static int backgroundmusic=2;
-    public Clip[] music;
+    public static Clip[] music;
     public Clip m;
-    public int currentmusicid;
+    public static int currentmusicid;
     public float volume =0.5f;
-    public boolean songmute;
+    public static boolean issongmute=false;
     public AudioPlayer() {
         loadmusic();
         playsong(menu);
@@ -50,12 +50,12 @@ public class AudioPlayer {
         this.volume=volume;
         updatemusicvolume();
     }
-    public void stopSong(){
+    public static void stopSong(){
         if(music[currentmusicid].isActive()){
             music[currentmusicid].stop();
         }
     }
-    public void playsong(int song){
+    public static void playsong(int song){
         stopSong();
         currentmusicid=song;
        // updatemusicvolume();
@@ -65,11 +65,11 @@ public class AudioPlayer {
 
 
     }
-    public void toggleSoundMusic(){
-        this.songmute=!songmute;
-        for(Clip c:music){
-            BooleanControl booleanControl=(BooleanControl) c.getControl(BooleanControl.Type.MUTE);
-            booleanControl.setValue(songmute);
+    public static void toggleSoundMusic(){
+        issongmute=!issongmute;
+        for (Clip c : music) {
+            BooleanControl booleanControl = (BooleanControl) c.getControl(BooleanControl.Type.MUTE);
+            booleanControl.setValue(issongmute);
         }
     }
     private void updatemusicvolume(){

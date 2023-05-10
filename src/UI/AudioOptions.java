@@ -1,5 +1,6 @@
 package UI;
 
+import Audio.AudioPlayer;
 import gamestates.Gamestate;
 
 import java.awt.*;
@@ -37,6 +38,7 @@ public class AudioOptions {
         if(isin(e,soundbottons)){
             if(soundbottons.isMousePressed()){
                 soundbottons.setMuted(!soundbottons.isMuted());
+                AudioPlayer.toggleSoundMusic();
             }
 
         } else if (isin(e,sfxbuttons)) {
