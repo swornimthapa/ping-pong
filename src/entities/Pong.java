@@ -59,10 +59,10 @@ public class Pong extends Rectangle{
 //        if( this.x<=0){
 //            xspeed=-xspeed;
 //        }
-        if( this.y<=0){
+        if( this.y<0){
             yspeed=-yspeed;
         }
-        if( this.x==900-50){
+        if( this.x>900-50){
            // Score.player1+=1;
             Score.updatescore(this.x);
             reset();
@@ -77,13 +77,38 @@ public class Pong extends Rectangle{
         }
         //collision with paddles
         if(this.intersects(paddle1)){
-            System.out.println("paddle1 hit");
+           // System.out.println("paddle1 hit");
+            if(xspeed<0){
+                if(xspeed!=-15){
+                    xspeed=xspeed-1;
+                }
+
+            }
+            if(xspeed>0){
+                if(xspeed!=15){
+                    xspeed=xspeed+1;
+                }
+            }
+
             xspeed=-xspeed;
+            //setxvelocity(xspeed);
         }
         if(this.intersects(paddle2)){
-            System.out.println("paddle 2 hit");
-            xspeed=-xspeed;
+           // System.out.println("paddle 2 hit");
+            if(xspeed<0){
+                if(xspeed!=-15) {
+                    xspeed = xspeed - 1;
+                }
+            }
+            if(xspeed>0){
+                if(xspeed!=15) {
+                    xspeed = xspeed + 1;
+                }
+            }
+           xspeed=-xspeed;
+           // setxvelocity(xspeed);
         }
+       // System.out.println(xspeed);
 
     }
     public void draw(Graphics2D g2d){
@@ -98,6 +123,13 @@ public class Pong extends Rectangle{
         this.x=(900/2)-50;
         this.y=(500/2)-50;
         xspeed*=-1;
+        xspeed=2;
+
+    }
+    public  void resetponggame(){
+        this.x=(900/2)-50;
+        this.y=(500/2)-50;
+        xspeed=2;
     }
 
 }

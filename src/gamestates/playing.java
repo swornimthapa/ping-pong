@@ -182,7 +182,7 @@ public class playing extends state implements statemethods{
         return audioOptions;
     }
     public  void resetall(){
-        pong.reset();
+        pong.resetponggame();
         paddle1.reset();
         paddle2.reset();
         score.resetscore();

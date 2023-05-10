@@ -15,12 +15,16 @@ public class Score extends Rectangle {
         this.pong=pong;
     }
     public static void updatescore(int x){
-        if(x==900-50){
+        if(x>900-50){
             player1=player1+1;
+
         }
         if(x<0){
             player2=player2+1;
+
         }
+       // System.out.println(player1);
+       // System.out.println(player2);
 
     }
 
