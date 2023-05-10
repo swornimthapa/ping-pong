@@ -63,11 +63,13 @@ public class Pong extends Rectangle{
             yspeed=-yspeed;
         }
         if( this.x==900-50){
-            Score.player1+=1;
+           // Score.player1+=1;
+            Score.updatescore(this.x);
             reset();
         }
         if(this.x<0){
-            Score.player2+=1;
+           // Score.player2+=1;
+            Score.updatescore(this.x);
             reset();
         }
         if( this.y==500-50){

@@ -43,4 +43,7 @@ public abstract class  Paddle extends Rectangle{
         }
         setYvelocity(0);
     }
+    public  void reset(){
+        y=250-120;
+    }
 }

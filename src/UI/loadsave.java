@@ -13,6 +13,7 @@ public class loadsave {
     public static final String URM_BUTTONS ="urm_buttons.png";
     public static final String VOLUME_BUTTONS ="volume_buttons.png";
     public static final String OPTION_BACKGROUND ="options_background.png";
+    public static final String GAMEOVER_BACKGROUND = "death_screen.png";
     public static  BufferedImage getSprites(String filename) throws IOException {
         BufferedImage img=null;
         InputStream is =loadsave.class.getResourceAsStream("/"+filename);

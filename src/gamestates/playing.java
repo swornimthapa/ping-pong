@@ -2,6 +2,7 @@ package gamestates;
 
 import Main.gamePanel;
 import UI.AudioOptions;
+import UI.gameOverOverlay;
 import UI.pauseOverlay;
 import entities.Paddle1;
 import entities.Paddle2;
@@ -21,7 +22,9 @@ public class playing extends state implements statemethods{
     Paddle2 paddle2;
     pauseOverlay pausemenu;
     boolean pause=false;
-    Score score = new Score();
+    boolean gameover=false;
+    Score score = new Score(pong);
+    private gameOverOverlay gameovermenu;
     private AudioOptions audioOptions;
     public playing(gamePanel gamepanel, keyboardinputs key, inputs.mouseinputs mousekey) {
         super(gamepanel, key,mousekey);
@@ -32,6 +35,7 @@ public class playing extends state implements statemethods{
     private void intipausemenu() {
         this.audioOptions= new AudioOptions();
         pausemenu = new pauseOverlay(this);
+        gameovermenu = new gameOverOverlay(this);
     }
 
 
@@ -42,16 +46,26 @@ public class playing extends state implements statemethods{
 
     @Override
     public void update() {
-        if(!pause){
-            pong.update();
-            paddle1.update();
-            paddle2.update();
-        }else {
-            pausemenu.update();
+        gameover=score.checkgameover();
+      //  System.out.println(gameover);
+        if(!gameover) {
+
+
+            if (!pause) {
+                pong.update();
+                paddle1.update();
+                paddle2.update();
+
+            } else{
+                pausemenu.update();
+            }
+        }
+        else {
+            gameovermenu.update();
         }
 
-
     }
+
 
     @Override
     public void draw(Graphics2D g2d) {
@@ -61,9 +75,13 @@ public class playing extends state implements statemethods{
             paddle1.draw(g2d);
             paddle2.draw(g2d);
 
-
-        if(pause){
-            pausemenu.draw(g2d);
+        if(!gameover){
+            if(pause){
+                pausemenu.draw(g2d);
+            }
+        }
+       else{
+            gameovermenu.drawGameoverlaybackground(g2d);
         }
 
 
@@ -124,6 +142,9 @@ public class playing extends state implements statemethods{
             if(pause){
                 pausemenu.mouseReleased(e);
             }
+            if(gameover){
+                gameovermenu.mouseReleased(e);
+            }
     }
 
     @Override
@@ -131,12 +152,18 @@ public class playing extends state implements statemethods{
         if(pause){
             pausemenu.mousePressed(e);
         }
+        if(gameover){
+            gameovermenu.mousePressed(e);
+        }
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
         if(pause){
             pausemenu.mouseMoved(e);
+        }
+        if (gameover) {
+            gameovermenu.mouseMoved(e);
         }
     }
 
@@ -154,7 +181,13 @@ public class playing extends state implements statemethods{
     public AudioOptions getAudioOptions(){
         return audioOptions;
     }
-
+    public  void resetall(){
+        pong.reset();
+        paddle1.reset();
+        paddle2.reset();
+        score.resetscore();
+        gameover=false;
+    }
 
 
 }
