@@ -1,6 +1,8 @@
 package entities;
 
+import Audio.AudioPlayer;
 import Main.gamePanel;
+import gamestates.playing;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
@@ -15,6 +17,7 @@ public class Pong extends Rectangle{
     public int xspeed=2;
     private int yspeed=2;
     public Shape oval;
+    AudioPlayer audioPlayer = new AudioPlayer();
 
     public Pong(){
         this.x=(900/2)-50;
@@ -77,13 +80,16 @@ public class Pong extends Rectangle{
         if(this.intersects(paddle1)){
             System.out.println("paddle1 hit");
             xspeed=-xspeed;
+            audioPlayer.playEffect(AudioPlayer.parry);
         }
         if(this.intersects(paddle2)){
             System.out.println("paddle 2 hit");
             xspeed=-xspeed;
+            audioPlayer.playEffect(AudioPlayer.parry);
         }
 
     }
+
     public void draw(Graphics2D g2d){
         oval=new Ellipse2D.Double(this.x,this.y,this.width,this.height);
         g2d.setColor(Color.RED);

@@ -8,13 +8,16 @@ public class AudioPlayer {
     public static int menu=0;
     public static int option=1;
     public static int backgroundmusic=2;
-    public Clip[] music;
+//    public static int ballhit;
+    public static int parry;
+    public Clip[] music, effects;
     public Clip m;
     public int currentmusicid;
     public float volume =0.5f;
     public boolean songmute;
     public AudioPlayer() {
         loadmusic();
+        loadEffect();
         playsong(menu);
 
 
@@ -27,6 +30,14 @@ public class AudioPlayer {
         }
 //        m=getClip("menu");
 //        m.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
+    public void loadEffect(){
+        String[] effectNames= {"parry"};
+        effects = new Clip[effectNames.length];
+        for(int i=0;i<effects.length;i++){
+            effects[i]=getClip(effectNames[i]);
+        }
     }
     private Clip getClip(String name){
         Clip clip;
@@ -81,4 +92,10 @@ public class AudioPlayer {
     private void  updateEffectvolume(){
 
     }
+
+    public void playEffect(int effect){
+        effects[effect].setMicrosecondPosition(0);
+        effects[effect].start();
+    }
+
 }
